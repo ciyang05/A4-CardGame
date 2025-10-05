@@ -218,6 +218,11 @@ public class CardGame extends JComponent {
         public void mousePressed(MouseEvent e) {
 	    // FILL IN
 	    // What happens here when the mouse is pressed?
+        /*
+         * Recoords the pile and card under the mouse 
+         */
+            pileUnderMouse = locatePile(e.getX(), e.getY());
+            cardUnderMouse = pileUnderMouse.locateCard(e.getX(), e.getY());
         }
 
         /** Release event handler */
