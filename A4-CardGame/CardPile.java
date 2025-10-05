@@ -123,17 +123,37 @@ public class CardPile extends LinkedList<Card> {
     }
 
     /**
-     * Moves every element after the mark into a new pile.
-     * If mark is null, entire pile is moved.
-     * The location of the new pile will be (0,0).
-     *
-     * @param mark elements including and after this are moved
-     * @return the suffix pile
-     */
-    public CardPile split(Card mark) {
-        // FILL IN -- return value below is temporary, for clean compile
-        return null;
-    }
+    * Moves every element after the mark into a new pile.
+    * If mark is null, entire pile is moved.
+    * The location of the new pile will be (0,0).
+    *
+    * @param mark elements including and after this are moved
+    * @return the suffix pile
+    */
+   public CardPile split(Card mark) {
+       // FILL IN -- return value below is temporary, for clean compile
+       CardPile newPile = new CardPile(0,0);
+       int markIndex = this.indexOf(mark);
+
+
+       if (mark == null){
+           for (int i = this.size()-1; i>=0; i--){
+                Card c = this.remove(i);
+                newPile.add(0,c);
+             
+       }
+       }
+       else{
+           for (int i = this.size()-1; i>=markIndex; i--){
+               Card c = this.remove(i);
+               newPile.add(0,c);
+           }
+
+
+       }
+       return newPile;
+       }
+
 
     /**
      * Appends the provided suffix onto this list.
