@@ -49,6 +49,7 @@ public class CardGame extends JComponent {
     /** Records index of pile under last mouse press */
     CardPile pileUnderMouse;
 
+    // Chiashi
     /** Initialize a table with a deck of cards in the first slot */
     public CardGame() {
 	pile[0] = new CardPile(Card.newDeck(),2,2);
@@ -198,6 +199,7 @@ public class CardGame extends JComponent {
    ///////////////////////////////////////////////
 
     
+    // Chiashi
     /** Listener for relevant mouse events */
     private class Responder implements MouseListener, MouseMotionListener {
         /** Click event handler */
@@ -205,8 +207,8 @@ public class CardGame extends JComponent {
             if (e.getClickCount() == 2) {
 		System.out.println("Mouse double click event at ("+e.getX()+","+e.getY()+").");
                 // FILL IN
-		// What happens here when a pile is double clicked?
-		
+		        // What happens here when a pile is double clicked?
+                Iterator it = CardPile.LinkedList<Card> 
                 repaint();
             }
         }
