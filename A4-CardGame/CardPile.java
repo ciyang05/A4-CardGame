@@ -107,6 +107,26 @@ public class CardPile extends LinkedList<Card> {
     public void insertAfter(CardPile insert, Card mark) {
         // FILL IN
     }
+    /**
+     * Gives an iterator right after the given card.
+     * if the card is null or not found, the iterator starts at the end
+     *  
+     * @param target the card to position after, can be null!
+     * @return a ListIterator ready to insert after the target
+     */
+    public ListIterator<Card> iteratorAfter(Card target){
+        if(target == null); {
+            return listIterator(size());
+        }
+        ListIterator<Card> iter = listIterator();
+        while (iter.hasNext()) {
+            if (iter.next() == target){
+                return iter;
+            }
+        }
+        return listIterator(size());
+
+    }
 
     /**
      * Moves every element after the mark into a new pile.
