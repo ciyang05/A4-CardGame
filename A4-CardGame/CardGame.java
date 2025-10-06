@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.ListIterator;
 
 /**
  *  This class implements a graphical canvas in which card 
@@ -61,6 +62,17 @@ public class CardGame extends JComponent {
         // Add code here to turn over all the cards
         // FILL IN
         ListIterator<Card> pos = pile[0].listIterator();
+        // checks if there is a next card and next card is not null
+        while ((pos.hasNext())) {
+            // checks if next card is not null
+            if (pos.next() != null) {
+                // goes back to previous card/position
+                pos.previous();
+                // goes back to next card to flip it
+                pos.next().flipCard();
+            }
+            
+        }
 
         // Sample card movements. 
         // Uncomment these one at a time to see what they do.
@@ -209,7 +221,7 @@ public class CardGame extends JComponent {
 		System.out.println("Mouse double click event at ("+e.getX()+","+e.getY()+").");
                 // FILL IN
 		        // What happens here when a pile is double clicked?
-                Iterator it = CardPile.LinkedList<Card> 
+                ListIterator<Card> it = 
                 repaint();
             }
         }
