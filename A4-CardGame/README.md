@@ -24,7 +24,7 @@ If you used AI, please describe how and the interaction between AI and your unde
 ## Reflection
 
 In what ways were the use of linked lists particularly appropriate for this assignment?
-Shakila- It's useful because we are not dealing with card positions and we only are about things like the card after and before. the iteratorAfter method uses a linked list iterator to find that spot cleanly, without indexes, which is exactly what linked lists are good for.
+Shakila- It's useful because we are not dealing with card positions and we only care about things like the card after and before. the iteratorAfter method uses a linked list iterator to find that spot cleanly, without indexes, which is exactly what linked lists are good for.
 
 What was the major challenge you faced in completing this assignment?
 Shakila- writing the methods not using indexes was tricky because I kept thinking in terms of array indexes and also to get the logic right. 
