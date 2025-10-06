@@ -125,16 +125,16 @@ public class CardPile extends LinkedList<Card> {
      * Gives an iterator right after the given card.
      * if the card is null or not found, the iterator starts at the end
      *  
-     * @param target the card to position after, can be null!
-     * @return a ListIterator ready to insert after the target
+     * @param mark the card to position after, can be null!
+     * @return a ListIterator ready to insert after the mark
      */
-    public ListIterator<Card> iteratorAfter(Card target){
-        if(target == null) {
+    public ListIterator<Card> iteratorAfter(Card mark){
+        if(mark == null) {
             return listIterator(size());
         }
         ListIterator<Card> iter = listIterator();
         while (iter.hasNext()) {
-            if (iter.next() == target){
+            if (iter.next() == mark){
                 return iter;
             }
         }
