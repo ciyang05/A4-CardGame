@@ -70,6 +70,8 @@ public class CardPile extends LinkedList<Card> {
         position.add(card); // add it
     }
 
+    // Chiashi
+    // NOT TESTED
     /**
      * Insert a card node after the specified marker
      *
@@ -77,7 +79,19 @@ public class CardPile extends LinkedList<Card> {
      * @param mark New card goes after this one
      */
     public void insertAfter(Card card, Card mark) {
-        // FILL IN
+        // list iterator
+        ListIterator<Card> pos = listIterator();
+        
+        // loop through to make sure there is another card
+        while (pos.hasNext()) {
+            // if the next card equals mark
+            // add the new card after mark
+            if (pos.next().equals(mark)) {
+                pos.add(card);
+                break;
+            }
+        }
+
     }
 
     /**
@@ -128,18 +142,44 @@ public class CardPile extends LinkedList<Card> {
 
     }
 
-    /**
-     * Moves every element after the mark into a new pile.
-     * If mark is null, entire pile is moved.
-     * The location of the new pile will be (0,0).
-     *
-     * @param mark elements including and after this are moved
-     * @return the suffix pile
-     */
-    public CardPile split(Card mark) {
-        // FILL IN -- return value below is temporary, for clean compile
-        return null;
-    }
+  /**
+   * Moves every element after the mark into a new pile.
+   * If mark is null, entire pile is moved.
+   * The location of the new pile will be (0,0).
+   *
+   * @param mark elements including and after this are moved
+   * @return the suffix pile
+   */
+  public CardPile split(Card mark) {
+      // FILL IN -- return value below is temporary, for clean compile
+      CardPile newPile = new CardPile(0,0);
+
+      if (mark == null){
+          while (!this.isEmpty()){
+               Card c = this.removeFirst();
+               newPile.add(c);
+              }
+      
+  
+    } else{
+      boolean foundMark = false;
+      Iterator <Card> iterator = this.iterator();
+       while (iterator.hasNext()){
+           Card c = iterator.next();
+           if (c == mark){
+               foundMark = true;
+           }
+           if (foundMark){
+               iterator.remove();
+               newPile.add(c);
+           }
+       }
+         
+          }
+      return newPile;
+      }
+
+
 
     /**
      * Appends the provided suffix onto this list.

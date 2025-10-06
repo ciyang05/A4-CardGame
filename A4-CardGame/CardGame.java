@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.ListIterator;
 
 /**
  *  This class implements a graphical canvas in which card 
@@ -49,6 +50,7 @@ public class CardGame extends JComponent {
     /** Records index of pile under last mouse press */
     CardPile pileUnderMouse;
 
+    // Chiashi
     /** Initialize a table with a deck of cards in the first slot */
     public CardGame() {
 	pile[0] = new CardPile(Card.newDeck(),2,2);
@@ -59,6 +61,18 @@ public class CardGame extends JComponent {
 
         // Add code here to turn over all the cards
         // FILL IN
+        ListIterator<Card> pos = pile[0].listIterator();
+        // checks if there is a next card and next card is not null
+        while ((pos.hasNext())) {
+            // checks if next card is not null
+            if (pos.next() != null) {
+                // goes back to previous card/position
+                pos.previous();
+                // goes back to next card to flip it
+                pos.next().flipCard();
+            }
+            
+        }
 
         // Sample card movements. 
         // Uncomment these one at a time to see what they do.
@@ -203,6 +217,7 @@ public class CardGame extends JComponent {
    ///////////////////////////////////////////////
 
     
+    // Chiashi
     /** Listener for relevant mouse events */
     private class Responder implements MouseListener, MouseMotionListener {
         /** Click event handler */
@@ -210,8 +225,8 @@ public class CardGame extends JComponent {
             if (e.getClickCount() == 2) {
 		System.out.println("Mouse double click event at ("+e.getX()+","+e.getY()+").");
                 // FILL IN
-		// What happens here when a pile is double clicked?
-		
+		        // What happens here when a pile is double clicked?
+                ListIterator<Card> it = 
                 repaint();
             }
         }
@@ -248,12 +263,29 @@ public class CardGame extends JComponent {
         public void mouseExited(MouseEvent e) {
         }
 
+
+        //Victoria
         /** Drag event handler moves piles around */
         public void mouseDragged(MouseEvent e) {
-	    // FILL IN
-	    // What happens when the mouse is dragged?
-	    // What if it is the first drag after a mouse down?
+        if (movingPile != null){
+            movingPile.setX(e.getX());
+            movingPile.setY(e.getY());
+        } else{
+            if(pileUnderMouse != null){
+                if(cardUnderMouse != null){
+                    movingPile = pileUnderMouse.split(cardUnderMouse);
+                    movingPile.setX(e.getX());
+                    movingPile.setY(e.getY());
+                } else {
+                    movingPile = pileUnderMouse.split(null);
+                    movingPile.setX(e.getX());
+                    movingPile.setY(e.getY());
+
+
+                }
+            }
         }
+    }
 
         /** Move event handler */
         public void mouseMoved(MouseEvent e) {
