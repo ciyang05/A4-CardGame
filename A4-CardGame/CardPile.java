@@ -121,14 +121,29 @@ public class CardPile extends LinkedList<Card> {
     public void insertAfter(CardPile insert, Card mark) {
         // FILL IN
     }
+
     /**
-     * Gives an iterator right after the given card.
+     * Find an iterator just before the mark
+     *
+     * @param mark New card goes before this one
+     */
+    public ListIterator<Card> iteratorBefore(Card mark) {
+        ListIterator<Card> position = listIterator(size());
+        while (position.hasPrevious() && (position.previous() != mark)) {
+            // keep going until we find our card
+        }
+        return position;
+    }
+
+    /**
+     * Find an iterator just after the mark
      * if the card is null or not found, the iterator starts at the end
-     *  
-     * @param mark the card to position after, can be null!
+     * 
+     * @param mark New card goes before this one
      * @return a ListIterator ready to insert after the mark
      */
-    public ListIterator<Card> iteratorAfter(Card mark){
+    public ListIterator<Card> iteratorAfter(Card mark) {
+        // FILL IN
         if(mark == null) {
             return listIterator(size());
         }
@@ -139,8 +154,8 @@ public class CardPile extends LinkedList<Card> {
             }
         }
         return listIterator(size());
-
     }
+    
 
   /**
    * Moves every element after the mark into a new pile.
