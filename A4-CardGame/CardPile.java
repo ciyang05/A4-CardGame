@@ -129,7 +129,7 @@ public class CardPile extends LinkedList<Card> {
      * @return a ListIterator ready to insert after the target
      */
     public ListIterator<Card> iteratorAfter(Card target){
-        if(target == null); {
+        if(target == null) {
             return listIterator(size());
         }
         ListIterator<Card> iter = listIterator();
