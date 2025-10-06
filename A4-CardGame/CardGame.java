@@ -93,6 +93,11 @@ public class CardGame extends JComponent {
         // You should test out all the methods of CardGame that move cards
         // and make sure that they all work as intended.
         // FILL IN
+
+        // Set up event listeners
+        Responder responder = new Responder();
+        addMouseListener(responder);
+        addMouseMotionListener(responder);
     }
 
     /**
@@ -233,6 +238,11 @@ public class CardGame extends JComponent {
         public void mousePressed(MouseEvent e) {
 	    // FILL IN
 	    // What happens here when the mouse is pressed?
+        /*
+         * Records the pile and card under the mouse 
+         */
+            pileUnderMouse = locatePile(e.getX(), e.getY());
+            cardUnderMouse = pileUnderMouse.locateCard(e.getX(), e.getY());
         }
 
         /** Release event handler */
