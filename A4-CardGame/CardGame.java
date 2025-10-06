@@ -60,6 +60,7 @@ public class CardGame extends JComponent {
 
         // Add code here to turn over all the cards
         // FILL IN
+        ListIterator<Card> pos = pile[0].listIterator();
 
         // Sample card movements. 
         // Uncomment these one at a time to see what they do.
