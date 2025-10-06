@@ -241,12 +241,29 @@ public class CardGame extends JComponent {
         public void mouseExited(MouseEvent e) {
         }
 
+
+        //Victoria
         /** Drag event handler moves piles around */
         public void mouseDragged(MouseEvent e) {
-	    // FILL IN
-	    // What happens when the mouse is dragged?
-	    // What if it is the first drag after a mouse down?
+        if (movingPile != null){
+            movingPile.setX(e.getX());
+            movingPile.setY(e.getY());
+        } else{
+            if(pileUnderMouse != null){
+                if(cardUnderMouse != null){
+                    movingPile = pileUnderMouse.split(cardUnderMouse);
+                    movingPile.setX(e.getX());
+                    movingPile.setY(e.getY());
+                } else {
+                    movingPile = pileUnderMouse.split(null);
+                    movingPile.setX(e.getX());
+                    movingPile.setY(e.getY());
+
+
+                }
+            }
         }
+    }
 
         /** Move event handler */
         public void mouseMoved(MouseEvent e) {
