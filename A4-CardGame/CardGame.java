@@ -341,13 +341,16 @@ public class CardGame extends JComponent {
                     movingPile = pileUnderMouse.split(cardUnderMouse);
                     movingPile.setX(e.getX());
                     movingPile.setY(e.getY());
+                    
                 } else {
                     movingPile = pileUnderMouse.split(null);
                     movingPile.setX(e.getX());
                     movingPile.setY(e.getY());
+                    
 
 
                 }
+                System.out.println("Mouse is being dragged.");
             }
         }
     }
