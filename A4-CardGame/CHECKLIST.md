@@ -10,17 +10,17 @@ your work, please indicate the status of each item
 
 ## Assignment Points:
 
-_____ 1 pt: Correctly implement `insertAfter` (single card version)
+__YES___ 1 pt: Correctly implement `insertAfter` (single card version)
 
-_____ 1 pt: Correctly implement `insertAfter` (pile version)
+_YES____ 1 pt: Correctly implement `insertAfter` (pile version)
 
-_____ 1 pt: Correctly implement `iteratorAfter`
+_YES____ 1 pt: Correctly implement `iteratorAfter`
 
-_____ 1 pt: Correctly implement `split`
+__YES___ 1 pt: Correctly implement `split`
 
-_____ 1 pts: Demonstrate the four methods above by using them in the `CardGame` constructor
+_YES____ 1 pts: Demonstrate the four methods above by using them in the `CardGame` constructor
 
-_____ 1 pt: Correctly implement double-click event handler
+____ 1 pt: Correctly implement double-click event handler
 
 _____ 1 pt: Correctly implement mouse press handler
 
@@ -37,22 +37,22 @@ ______ Wrote version using SLL class for card pile
 
 ## General Items:
 
-_____ 4 pts: Program compiles without errors or warnings
+_YES____ 4 pts: Program compiles without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+_YES____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__YES___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      __YES___ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      _YES____ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      _YES____ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      ___YES__ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      _YES____ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission
+_YES____ 1 pt: All required files included with submission
 
-_____ 1 pt: readme.md contains reflection on the assignment
+__YES___ 1 pt: readme.md contains reflection on the assignment

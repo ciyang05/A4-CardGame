@@ -70,8 +70,6 @@ public class CardPile extends LinkedList<Card> {
         position.add(card); // add it
     }
 
-    // Chiashi
-    // NOT TESTED
     /**
      * Insert a card node after the specified marker
      *
@@ -192,7 +190,7 @@ public class CardPile extends LinkedList<Card> {
       Iterator <Card> iterator = this.iterator();
        while (iterator.hasNext()){
            Card c = iterator.next();
-           if (c == mark){
+           if (c.equals(mark)){
                foundMark = true;
            }
            if (foundMark){

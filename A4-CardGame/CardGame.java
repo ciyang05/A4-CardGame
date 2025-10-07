@@ -50,7 +50,6 @@ public class CardGame extends JComponent {
     /** Records index of pile under last mouse press */
     CardPile pileUnderMouse;
 
-    // Chiashi
     /** Initialize a table with a deck of cards in the first slot */
     public CardGame() {
 	pile[0] = new CardPile(Card.newDeck(),2,2);
@@ -61,6 +60,7 @@ public class CardGame extends JComponent {
 
         // Add code here to turn over all the cards
         // FILL IN
+
         ListIterator<Card> pos = pile[0].listIterator();
         // checks if there is a next card and next card is not null
         while ((pos.hasNext())) {
@@ -74,25 +74,52 @@ public class CardGame extends JComponent {
             
         }
 
+
         // Sample card movements. 
         // Uncomment these one at a time to see what they do.
-	//pile[0].getLast().flipCard();
-        //pile[1].addLast(pile[0].removeLast());
-        //pile[1].addLast(pile[0].removeLast());
-        //pile[1].addFirst(pile[0].removeFirst());
+	    // pile[0].getLast().flipCard();
+        pile[1].addLast(pile[0].removeLast());
+        pile[1].addLast(pile[0].removeLast());
+        pile[1].addFirst(pile[0].removeFirst());
+
 
         // Now add your card movements for stage 1 here.
         // FILL IN
+        pile[2].addFirst(pile[0].removeFirst());
+        pile[3].addFirst(pile[1].removeFirst());
+        pile[4].addLast(pile[0].remove(30));
+        pile[4].addFirst(pile[0].remove(3));
+        
+
 
         // Once you have written the split() method in CardPile 
         // you can uncomment and test the line below.
-        //pile[2].addAll(pile[0].split(pile[0].get(26)));
+        pile[2].addAll(pile[0].split(pile[0].get(26)));
 
         // Next try other uses of split.
         // Then try out the various insert methods.
         // You should test out all the methods of CardGame that move cards
         // and make sure that they all work as intended.
         // FILL IN
+
+        // use of iteratorAfter
+        pile[0].iteratorAfter(pile[0].getFirst());
+
+        // other uses of split
+        pile[3].addAll(pile[0].split(pile[0].get(5)));
+
+        // insert methods
+        pile[2].insertBefore(pile[3], pile[2].get(0));
+        pile[1].insertAfter(pile[0].get(4), pile[1].get(0));
+        pile[4].insertBefore(pile[2].removeLast(), pile[4].get(1));
+        // adding card to pile 3 to test insertAfter method
+        pile[3].add(pile[0].removeFirst());
+        pile[3].insertAfter(pile[1], pile[3].getLast());
+
+        // methods of CardGame that move cards
+        // mouseDragged(responder);
+        
+        
 
         // Set up event listeners
         Responder responder = new Responder();
@@ -217,7 +244,6 @@ public class CardGame extends JComponent {
    ///////////////////////////////////////////////
 
     
-    // Chiashi
     /** Listener for relevant mouse events */
     private class Responder implements MouseListener, MouseMotionListener {
         /** Click event handler */
@@ -304,7 +330,6 @@ public class CardGame extends JComponent {
         }
 
 
-        //Victoria
         /** Drag event handler moves piles around */
         public void mouseDragged(MouseEvent e) {
         if (movingPile != null){
