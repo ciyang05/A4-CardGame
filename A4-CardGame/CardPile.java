@@ -119,7 +119,18 @@ public class CardPile extends LinkedList<Card> {
      * @param mark   insert after this point
      */
     public void insertAfter(CardPile insert, Card mark) {
-        // FILL IN
+        ListIterator<Card> it = this.listIterator();
+
+        while(!it.hasNext()){
+            if(it.next() == mark){
+                break;
+            }
+        }
+
+        while(!insert.isEmpty()){
+            Card v = insert.removeFirst();
+            it.add(v);
+        }
     }
 
     /**
