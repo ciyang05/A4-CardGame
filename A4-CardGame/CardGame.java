@@ -226,7 +226,36 @@ public class CardGame extends JComponent {
 		System.out.println("Mouse double click event at ("+e.getX()+","+e.getY()+").");
                 // FILL IN
 		        // What happens here when a pile is double clicked?
-                ListIterator<Card> it = 
+                ListIterator<Card> it = pileUnderMouse.listIterator();
+
+                // finds card in the pile to flip over, with any following cards
+                // while there is a next card 
+                while (it.hasNext()) {
+                    // temp card being looked at
+                    Card temp = it.next();
+
+                    // if current card is null, break out of the loop
+                    if (temp == null) {
+                        System.out.println("This card is null.");
+                        break;
+                    // else if current card equals the card double clicked, 
+                    // flip that card and following cards, then break out of loop
+                    } else if (temp.equals(cardUnderMouse)) {
+                        // flip the card that was double clicked
+                        // temp.flipCard();
+                        cardUnderMouse.flipCard();
+
+                        // checks if there is a next card
+                        while (it.hasNext()) {
+                            // go to the next card and reassign temp card
+                            temp = it.next();
+                            // flip the current card
+                            temp.flipCard();
+                        }
+                        break;
+                    }
+                }
+
                 repaint();
             }
         }
