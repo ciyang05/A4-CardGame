@@ -304,21 +304,19 @@ public class CardGame extends JComponent {
         public void mouseReleased(MouseEvent e) {
             if (movingPile != null) {
                 if (cardUnderMouse != null){
-		// FILL IN
                 CardPile end = pileUnderMouse.split(cardUnderMouse);
                 
                 pileUnderMouse.append(movingPile);
                 pileUnderMouse.append(end);
-            }
-                else{
-                    CardPile nearestPile = locatePile(e.getX(), e.getY());
-                    nearestPile.append(movingPile);
+                System.out.println("Mouse is being released");
+            } else {
+                CardPile nearestPile = locatePile(e.getX(), e.getY());
+                nearestPile.append(movingPile);
                 
-                }
+            }
             movingPile = null;
             }
             repaint();
-            // We have a pile coming to rest -- where? what happens?
         }
 
         /** Enter event handler */
@@ -332,27 +330,27 @@ public class CardGame extends JComponent {
 
         /** Drag event handler moves piles around */
         public void mouseDragged(MouseEvent e) {
-        if (movingPile != null){
-            movingPile.setX(e.getX());
-            movingPile.setY(e.getY());
-        } else{
-            if(pileUnderMouse != null){
-                if(cardUnderMouse != null){
-                    movingPile = pileUnderMouse.split(cardUnderMouse);
-                    movingPile.setX(e.getX());
-                    movingPile.setY(e.getY());
-                    
-                } else {
-                    movingPile = pileUnderMouse.split(null);
-                    movingPile.setX(e.getX());
-                    movingPile.setY(e.getY());
-                    
+            if (movingPile != null){
+                movingPile.setX(e.getX());
+                movingPile.setY(e.getY());
+            } else {
+                if(pileUnderMouse != null){
+                    if(cardUnderMouse != null){
+                        movingPile = pileUnderMouse.split(cardUnderMouse);
+                        movingPile.setX(e.getX());
+                        movingPile.setY(e.getY());
+                        
+                    } else {
+                        movingPile = pileUnderMouse.split(null);
+                        movingPile.setX(e.getX());
+                        movingPile.setY(e.getY());
+                        
 
 
+                    }
+                    System.out.println("Mouse is being dragged.");
                 }
-                System.out.println("Mouse is being dragged.");
             }
-        }
     }
 
         /** Move event handler */
