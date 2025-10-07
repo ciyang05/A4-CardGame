@@ -277,11 +277,22 @@ public class CardGame extends JComponent {
         /** Release event handler */
         public void mouseReleased(MouseEvent e) {
             if (movingPile != null) {
+                if (cardUnderMouse != null){
 		// FILL IN
-                // We have a pile coming to rest -- where? what happens?
-
+                CardPile end = pileUnderMouse.split(cardUnderMouse);
+                
+                pileUnderMouse.append(movingPile);
+                pileUnderMouse.append(end);
+            }
+                else{
+                    CardPile nearestPile = locatePile(e.getX(), e.getY());
+                    nearestPile.append(movingPile);
+                
+                }
+            movingPile = null;
             }
             repaint();
+            // We have a pile coming to rest -- where? what happens?
         }
 
         /** Enter event handler */
