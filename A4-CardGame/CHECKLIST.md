@@ -20,15 +20,15 @@ __YES___ 1 pt: Correctly implement `split`
 
 _YES____ 1 pts: Demonstrate the four methods above by using them in the `CardGame` constructor
 
-____ 1 pt: Correctly implement double-click event handler
+_YES___ 1 pt: Correctly implement double-click event handler
 
-_____ 1 pt: Correctly implement mouse press handler
+_YES____ 1 pt: Correctly implement mouse press handler
 
-_____ 1 pt: Correctly implement mouse release handler
+__YES___ 1 pt: Correctly implement mouse release handler
 
-_____ 1 pt: Correctly implement mouse drag handler
+_YES____ 1 pt: Correctly implement mouse drag handler
 
-_____ 1 pt: GUI program fully functional
+_YES____ 1 pt: GUI program fully functional
 
 ## Kudos (Extra Challenge):
 
