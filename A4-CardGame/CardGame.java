@@ -303,21 +303,19 @@ public class CardGame extends JComponent {
         /** Release event handler */
         public void mouseReleased(MouseEvent e) {
             if (movingPile != null) {
-                if (cardUnderMouse != null){
-                CardPile end = pileUnderMouse.split(cardUnderMouse);
-                
-                pileUnderMouse.append(movingPile);
-                pileUnderMouse.append(end);
-                System.out.println("Mouse is being released");
-            } else {
-                CardPile nearestPile = locatePile(e.getX(), e.getY());
-                nearestPile.append(movingPile);
-                
-            }
+                CardPile targetPile = locatePile(e.getX(), e.getY());
+                Card targetCard = targetPile.locateCard(e.getX(), e.getY());
+                if (targetCard != null){
+                    targetPile.insertAfter(movingPile, targetCard);
+
+                } else {
+                    targetPile.append(movingPile);
+                }
             movingPile = null;
-            }
             repaint();
+            }
         }
+
 
         /** Enter event handler */
         public void mouseEntered(MouseEvent e) {
